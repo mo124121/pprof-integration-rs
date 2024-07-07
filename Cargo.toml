@@ -1,8 +1,19 @@
 [package]
-name = "pprof-server-rs"
+name = "pprof_server"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+actix-web = { version = "4.8.0", optional = true }
+axum = { version = "0.7.5", optional = true } 
+flate2 = "1.0.30"
+pprof = { version = "0.13.0", features = ["flamegraph", "protobuf-codec"] }
+serde = { version = "1.0.203", features = ["derive"] }
+tokio = { version = "1.38.0", features = ["full"] }
+
+[features]
+default = ["actix-web"]
+actix-web = ["dep:actix-web"]
+axum = ["dep:axum"]
