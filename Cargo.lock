@@ -1366,8 +1366,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "pprof-server"
-version = "0.3.0"
+name = "pprof-integration"
+version = "0.1.0"
 dependencies = [
  "actix-web",
  "axum",

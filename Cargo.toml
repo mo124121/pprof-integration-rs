@@ -1,9 +1,9 @@
 [package]
-name = "pprof-server"
-version = "0.3.0"
+name = "pprof-integration"
+version = "0.1.0"
 edition = "2021"
-repository = "https://github.com/harsssh/pprof-server-rs"
-description = "A simple pprof server in Rust"
+repository = "https://github.com/harsssh/pprof-integration-rs"
+description = "Integrating pprof with various web frameworks in Rust"
 license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
