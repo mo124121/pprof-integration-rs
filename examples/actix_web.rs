@@ -1,4 +1,3 @@
-extern crate pprof_server;
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
 
 #[get("/")]
@@ -18,7 +17,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(index)
-            .configure(pprof_server::integration::actix_web::configure)
+            .configure(pprof_integration::frameworks::actix_web::configure)
     })
     .bind("0.0.0.0:3000")?
     .run()

@@ -9,5 +9,5 @@ fn index() -> &'static str {
 fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index])
-        .mount("/", pprof_server::integration::rocket::routes())
+        .mount("/", pprof_server::frameworks::rocket::routes())
 }
