@@ -18,13 +18,25 @@ pub async fn generate_profile(duration: u64) -> Result<Vec<u8>, Box<dyn std::err
 
     sleep(Duration::from_secs(duration)).await;
 
-    let profile = guard.report().build()?.pprof()?;
-
+    let profile = match guard.report().build() {
+        Ok(report) => report.pprof()?,
+        Err(e) => {
+            eprintln!("Failed to build report: {:?}", e);
+            return Err(e.into());
+        }
+    };
     let mut body = Vec::new();
     let mut encoder = GzEncoder::new(&mut body, Compression::default());
 
-    profile.write_to_writer(&mut encoder)?;
-    encoder.finish()?;
+    if let Err(e) = profile.write_to_writer(&mut encoder) {
+        eprintln!("Failed to write profile to encoder: {:?}", e);
+        return Err(e.into());
+    }
+
+    if let Err(e) = encoder.finish() {
+        eprintln!("Failed to finish encoding: {:?}", e);
+        return Err(e.into());
+    }
 
     Ok(body)
 }

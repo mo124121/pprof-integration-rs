@@ -10,7 +10,7 @@ license = "MIT"
 
 [dependencies]
 actix-web = { version = "4.8.0", optional = true }
-axum = { version = "0.7.5", optional = true } 
+axum = { version = "0.7.5", optional = true }
 rocket = { version = "0.5.1", optional = true }
 flate2 = "1.0.30"
 pprof = { version = "0.13.0", features = ["flamegraph", "protobuf-codec"] }
@@ -32,3 +32,8 @@ required-features = ["actix-web"]
 name = "rocket"
 path = "examples/rocket.rs"
 required-features = ["rocket"]
+
+[[example]]
+name = "axum"
+path = "examples/axum.rs"
+required-features = ["axum"]
