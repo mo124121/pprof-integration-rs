@@ -16,9 +16,10 @@ flate2 = "1.0.30"
 pprof = { version = "0.13.0", features = ["flamegraph", "protobuf-codec"] }
 serde = { version = "1.0.203", features = ["derive"] }
 tokio = { version = "1.38.0", features = ["full"] }
+axum-macros = "0.4.2"
 
 [features]
-default = ["actix-web"]
+default = ["axum"]
 actix-web = ["dep:actix-web"]
 axum = ["dep:axum"]
 rocket = ["dep:rocket"]

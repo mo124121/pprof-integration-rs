@@ -7,6 +7,7 @@ use axum::{
     Router,
 };
 
+#[axum_macros::debug_handler]
 pub async fn pprof_profile_axum(
     Query(params): Query<ProfileParams>,
 ) -> Result<Response, StatusCode> {
